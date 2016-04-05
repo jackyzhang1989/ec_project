@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -40,7 +41,7 @@ public class Movie {
 
 	private byte[] poster;
 
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="MOVIE_ARTIST",
 			joinColumns = @JoinColumn(name="movieId"),
 			inverseJoinColumns = @JoinColumn(name="artistId"))
@@ -52,7 +53,7 @@ public class Movie {
 	@ElementCollection
 	private List<String> characters = new ArrayList<>();
 	
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="MOVIE_Director",
 			joinColumns = @JoinColumn(name="movieId"),
 			inverseJoinColumns = @JoinColumn(name="directorId"))

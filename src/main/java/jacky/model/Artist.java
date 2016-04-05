@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -26,7 +27,7 @@ public class Artist extends Person{
 	
 	private String biography;
 	
-	@ManyToMany(mappedBy="artists")
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="artists")
 	private List<Movie> movies = new ArrayList<>();
 
 	public byte[] getPic() {
