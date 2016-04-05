@@ -65,8 +65,12 @@ public class Artist extends Person{
 		return movies;
 	}
 
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
+	public void addMovie(Movie movie) {
+		movies.add(movie);
+	}
+	
+	public void removeMovie(Movie movie) {
+		movies.remove(movie);
 	}
 
 }

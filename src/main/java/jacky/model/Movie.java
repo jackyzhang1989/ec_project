@@ -116,8 +116,14 @@ public class Movie {
 		return artists;
 	}
 
-	public void setArtists(List<Artist> artists) {
-		this.artists = artists;
+	public void addArtist(Artist artist) {
+		artists.add(artist);
+		artist.addMovie(this);
+	}
+	
+	public void removeArtist(Artist artist) {
+		artists.remove(artist);
+		artist.removeMovie(this);
 	}
 
 	public Date getDate() {
